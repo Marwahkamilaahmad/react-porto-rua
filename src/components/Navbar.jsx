@@ -25,6 +25,7 @@
 
 // export default Navbar;
 
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -35,9 +36,9 @@ const Navbar = () => {
       </div>
       <div className="hidden md:block">
         <ul className="flex">
-          <li className="mr-4">Home</li>
-          <li className="mr-4">Services</li>
-          <li className="mr-4">Experience</li>
+          <li className="mr-4"><Link to="/about">about</Link></li>
+          <li className="mr-4"><Link to="/projects">projects</Link></li>
+          <li className="mr-4"><Link to="technologies">technologies</Link></li>
         </ul>
       </div>
       <h1 className="text-3xl font-bold underline">
