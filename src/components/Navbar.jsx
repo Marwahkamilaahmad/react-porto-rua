@@ -13,7 +13,7 @@ const Navbar = ({theme, setTheme}) => {
   return (
     <div className="navbar-wrapper">
       <div className="navbar-left">
-        <div className="mr-4">Logo</div>
+        <div className="mr-4 font-bold">Marwah</div>
       </div>
 
       <div className="navbar-right">
