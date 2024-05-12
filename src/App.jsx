@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import General from "./pages/General";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -10,6 +11,7 @@ function App() {
     <Router>
       <div className={`container ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
+        <General />
       </div>
       <Routes>
         <Route path="/" element={""} />

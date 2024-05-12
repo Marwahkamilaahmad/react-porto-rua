@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -23,6 +27,6 @@ body {
 }
 
 .container.dark {
-  background:#222;
+  background: #222;
   color: rgb(255, 255, 255);
 }
