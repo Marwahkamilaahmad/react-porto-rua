@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className={`container ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
-        <General />
+        <General theme={theme} setTheme={setTheme}/>
       </div>
       <Routes>
         <Route path="/" element={""} />
