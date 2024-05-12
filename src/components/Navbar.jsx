@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 import toggle_dark from "../assets/night.png";
 import toggle_light from "../assets/day.png";
 
-const Navbar = () => {
+const Navbar = ({theme, setTheme}) => {
+
+  const toggle_change = () => {
+    theme == 'light' ? setTheme('dark') : setTheme('light');
+  }
   return (
     <div className="navbar-wrapper">
       <div className="navbar-left">
@@ -40,7 +44,7 @@ const Navbar = () => {
           </li>
           <li>
             <div className="toggle-icon">
-              <img src={toggle_dark} alt="" className="toggle-img" />
+              <img onClick={()=>{toggle_change()}} src={theme == 'light' ? toggle_dark : toggle_light} alt="" className="toggle-img" />
             </div>
           </li>
         </ul>
