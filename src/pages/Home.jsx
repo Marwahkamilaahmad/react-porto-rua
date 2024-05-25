@@ -6,9 +6,14 @@ import foto from "../assets/personpink.png";
 
 export default function Home() {
   return (
-    <main className="container mx-auto max-width text-center">
-      <section>
-        <h4 className="text-dark-heading dark:text-light-heading xl:text-3xl xl:leading-tight font-bold">
+    <main className="container mx-auto max-w-screen-lg text-center">
+      <section className="flex flex-col items-center justify-center min-h-screen">
+        <div className="mockup-code bg-cream flex  text-center items-center justify-center text-black">
+          <pre className="mt-12">
+            <code className="">view marwah's resume here</code> <br></br> <button className="bg-white px-5 hover:bg-pink-200" type="submit">view</button>
+          </pre>
+        </div>
+        <h4 className="text-dark-heading dark:text-light-heading xl:text-3xl xl:leading-tight font-bold mt-10">
           Tech Stack
         </h4>
         <Techstack />
@@ -20,10 +25,10 @@ export default function Home() {
           Portofolio
         </h4>
         <PortfolioItem
-        image={foto}
-        title="Project One"
-        link="https://example.com/project-one"
-      />
+          image={foto}
+          title="Project One"
+          link="https://example.com/project-one"
+        />
         <h4 className="text-dark-heading mt-10 mb-10 dark:text-light-heading xl:text-3xl xl:leading-tight font-bold">
           Education & Timeline
         </h4>
