@@ -1,4 +1,4 @@
-import EducationTimeline from "../components/EducationTimeline";
+
 import LanguageSkill from "../components/LanguageSkill";
 import PortfolioItem from "../components/Portofolio";
 import Techstack from "../components/Techstack";
@@ -34,7 +34,6 @@ export default function Home() {
           Social Media
         </h4>
         <SocialMedia />
-        {/* <EducationTimeline /> */}
       </section>
     </main>
   );
