@@ -37,116 +37,116 @@ export default function Techstack() {
         <img
           src={seleniumicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-rose-400 bg-white "
         />
         <img
           src={javaicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-white bg-white"
         />
         <img
           src={javascripticons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-yellow-300 bg-white"
         />
         <img
           src={golangicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-blue-300 bg-white"
         />
         <img
           src={reacticons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-blue-200 bg-white"
         />
         <img
           src={phpicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-purple-300 bg-white"
         />
         <img
           src={tailwindicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-cyan-200 bg-white"
         />
         <img
           src={bootstrapicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-purple-300 bg-white"
         />
       </div>
       <div className="flex item-center justify-center flex-wrap" data-aos="fade-right">
         <img
           src={nextjsicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-white bg-white"
         />
         <img
           src={anstudicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-cyan-400 bg-white"
         />
         <img
           src={blendericons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-orange-300 bg-white"
         />
         <img
           src={figmaicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-purple-300 bg-white"
         />
         <img
           src={flaskicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-red-300 bg-white"
         />
         <img
           src={fluttericons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-blue-300 bg-white"
         />
       </div>
       <div className="flex item-center justify-center flex-wrap" data-aos="fade-left">
         <img
           src={juniticons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-red-300 bg-white"
         />
         <img
           src={jupytericons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-orange-300 bg-white"
         />
         <img
           src={gitlabicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-orange-300 bg-white"
         />
         <img
           src={dockericons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-blue-300 bg-white"
         />
         <img
           src={firebaseicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-orange-300 bg-white"
         />
         <img
           src={nodejsicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-green-300 bg-white"
         />
         <img
           src={mysqlicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-blue-300 bg-white"
         />
         <img
           src={laravelicons}
           alt=""
-          className="h-20 w-20 rounded-full p-1 m-3"
+          className="h-20 w-20 rounded-full p-3 m-3 shadow-lg shadow-red-300 bg-white"
         />
       </div>
     </div>

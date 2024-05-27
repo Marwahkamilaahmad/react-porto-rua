@@ -1,42 +1,51 @@
-import denteksipict1 from '../assets/denteksi1.png';
-import konsultankupict1 from '../assets/konsultankupict1.png';
+import denteksipict1 from "../assets/denteksi1.png";
+import konsultankupict1 from "../assets/konsultankupict1.png";
+import { motion } from "framer-motion";
+
 
 const projects = [
   {
-    title: "Boba Store (E-Commerce App)",
+    title: "Denteksi Website",
     description:
-      "A Boba Store (E-Commerce App) using Next JS, MongoDB, and Chakra UI. This project have authentication, multi-role, and e-commerce app without payment gateway.",
+      "Denteksi adalah website dengan teknologi AI untuk mendeteksi adanya permasalahan pada gigi. Proyek ini dibangun dengan laravel dan database MySql",
     image: denteksipict1,
     githubLink: "https://denteksi.com",
-    tags: ["Next.js", "MongoDB", "Chakra UI"],
+    tags: ["Laravel", "MySql", "Bootstrap"],
   },
   {
-    title: "Youtube Comment Sentiment Analysis",
+    title: "Konsultanku Mobile",
     description:
-      "A Youtube Comment Sentiment Analysis using Python and Flask with Next JS and Chakra UI. This project is a part of smart system vocational olimpiade.",
+      "Konsultanku adalah aplikasi penghubung pihak UMKM dengan mahasiswa di indonesia yang akan bersama sama memberikan solusi pada masalah UMKM. Proyek dibangun dengan produk google",
     image: konsultankupict1,
     githubLink: "https://github.com/your-username/sentiment-analysis",
-    tags: ["Python", "Flask", "Next.js", "Chakra UI"],
+    tags: ["Flutter", "Go", "Firebase"],
   },
   {
-    title: "Nuxt JS Movie API",
+    title: "Golang API Todo List",
     description:
-      "Explore a Nuxt.js movie API project showcasing seamless navigation, modular components, and efficient API fetching for a streamlined movie browsing experience.",
+      "Pembuatan Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
     image: "/images/movie-api.png",
     githubLink: "https://github.com/your-username/movie-api",
-    tags: ["Nuxt.js"],
+    tags: ["Go", "Fiber"],
   },
-  // Add more projects here
+  {
+    title: "Android Calorie App",
+    description:
+      "Pembuatan Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
+    image: "/images/movie-api.png",
+    githubLink: "https://github.com/your-username/movie-api",
+    tags: ["Android Studio", "Kotlin", "Firebase"],
+  },
 ];
 
 const PortfolioItem = () => {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="mx-auto py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div
             key={project.title}
-            className="bg-red-100 rounded-lg shadow-md overflow-hidden"
+            className="bg-cream rounded-2xl shadow-lg shadow-grey-600 overflow-hidden"
           >
             <img
               src={project.image}
@@ -50,7 +59,7 @@ const PortfolioItem = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-gray-200 text-gray-700 py-1 px-2 rounded-full text-sm"
+                    className="bg-white text-gray-700 py-1 px-2 rounded-full text-sm"
                   >
                     {tag}
                   </span>
