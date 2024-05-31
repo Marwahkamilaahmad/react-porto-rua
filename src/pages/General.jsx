@@ -23,7 +23,7 @@ const General = ({ theme }) => {
           className="md:max-w-md h-auto object-cover"
         />
       </div>
-      <div className="flex-1 md:ml-12 mr-10">
+      <div className="flex-1 md:ml-12 mr-10 px-5">
         <h1
           className={`text-5xl font-bold mb-4 ${
             theme === "light"

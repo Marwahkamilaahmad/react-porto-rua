@@ -10,7 +10,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`container ${theme}`}>
+      <div className={`application ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
         <General theme={theme} setTheme={setTheme} />
         <Home theme={theme} setTheme={setTheme} />
