@@ -39,8 +39,7 @@ const General = ({ theme }) => {
           Fullstack Developer
         </h4>
         <p className="text" data-aos="fade-left">
-          Hi, Im Marwah Kamila. A Fullstack Developer from Indonesia. Im
-          Interested in Next JS, Nuxt JS, Nest JS, Express JS, Golang.
+          Hi, Im Marwah Kamila a fullstack developer. Interest in website programming, cloud computing, and software testing. 
         </p>
         <div className="mt-4">
           <a

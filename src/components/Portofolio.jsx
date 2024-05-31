@@ -1,7 +1,8 @@
-import denteksipict1 from "../assets/denteksi1.png";
+import denteksipict1 from "../assets/denteksi6.png";
 import konsultankupict1 from "../assets/konsultankupict1.png";
+import todolistgo from "../assets/todolist6.png";
+import calorieapp from "../assets/calorieapp-ui4.png";
 import { motion } from "framer-motion";
-
 
 const projects = [
   {
@@ -23,29 +24,29 @@ const projects = [
   {
     title: "Golang API Todo List",
     description:
-      "Pembuatan Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
-    image: "/images/movie-api.png",
-    githubLink: "https://github.com/your-username/movie-api",
+      "Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
+    image: todolistgo,
+    githubLink: "https://github.com/Marwahkamilaahmad/todo-with-go",
     tags: ["Go", "Fiber"],
   },
   {
     title: "Android Calorie App",
     description:
-      "Pembuatan Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
-    image: "/images/movie-api.png",
-    githubLink: "https://github.com/your-username/movie-api",
-    tags: ["Android Studio", "Kotlin", "Firebase"],
+      "Aplikasi mobile android yang didukung oleh firebase sebagai database dan autentikasi",
+    image: calorieapp,
+    githubLink: "https://github.com/Marwahkamilaahmad/ANDROID_CALORIE_APP",
+    tags: ["Android", "Kotlin", "Firebase"],
   },
 ];
 
-const PortfolioItem = () => {
+const PortfolioItem = ({theme, setTheme}) => {
   return (
     <div className="mx-auto py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div
             key={project.title}
-            className="bg-cream rounded-2xl shadow-lg shadow-grey-600 overflow-hidden"
+            className={theme == "light" ?  "bg-cream rounded-2xl shadow-lg shadow-grey-600 overflow-hidden" : "bg-gradient-to-r from-pink-700 to-pink-400 rounded-2xl shadow-lg shadow-grey-600 overflow-hidden" }
           >
             <img
               src={project.image}
@@ -54,12 +55,12 @@ const PortfolioItem = () => {
             />
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-700 text-base">{project.description}</p>
+              <p className="text-black text-base text-sm">{project.description}</p>
               <div className="mt-4 flex space-x-4">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-white text-gray-700 py-1 px-2 rounded-full text-sm"
+                    className="bg-white text-gray-700 py-1 px-3 rounded-full text-sm"
                   >
                     {tag}
                   </span>

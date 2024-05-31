@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import toggle_dark from "../assets/night.png";
 import toggle_light from "../assets/day.png";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = ({ theme, setTheme }) => {
   const [checked, setChecked] = useState("checked");
@@ -18,14 +17,14 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <div className="navbar-wrapper">
       <div className="navbar-left">
-        <div className="mr-4 font-bold">Marwah</div>
+        <div className="mr-4 font-bold">Marwah - Rua</div>
       </div>
 
       <div className="navbar-right">
         <ul className="flex">
           <li className="sub-list">
             <Link
-              to="/about"
+              to="/#about"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               about
@@ -33,7 +32,7 @@ const Navbar = ({ theme, setTheme }) => {
           </li>
           <li className="sub-list">
             <Link
-              to="/projects"
+              to="/#projects"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               projects
@@ -41,7 +40,7 @@ const Navbar = ({ theme, setTheme }) => {
           </li>
           <li className="sub-list">
             <Link
-              to="technologies"
+              to="/#technologies"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               technologies
@@ -66,9 +65,6 @@ const Navbar = ({ theme, setTheme }) => {
           <li className="w-10">
             <div className="toggle-icon">
               <img
-                onClick={() => {
-                  toggle_change();
-                }}
                 src={theme == "light" ? toggle_light : toggle_dark}
                 alt=""
                 className="toggle-img"
