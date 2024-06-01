@@ -55,7 +55,7 @@ const PortfolioItem = ({theme, setTheme}) => {
             />
             <div className="p-6">
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-black text-base text-sm">{project.description}</p>
+              <p className={theme == "light" ? "text-black text-base text-sm" : "text-white text-base text-sm"}>{project.description}</p>
               <div className="mt-4 flex space-x-4">
                 {project.tags.map((tag) => (
                   <span
