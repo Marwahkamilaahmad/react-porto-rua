@@ -23,11 +23,11 @@ const Home = ({ theme, setTheme }) => {
       <section className="flex flex-col items-center justify-center min-h-screen">
         <div className="mockup-code bg-white flex  text-center items-center justify-center text-black">
           <pre className="mt-12">
-            <code className="">view marwah's resume here</code> <br></br>{" "}
+            <code className="">view marwah's details portofolio here</code> <br></br>{" "}
             <a
-              className="bg-white px-5 hover:bg-pink-200"
+              className="bg-pink-300 px-5 hover:bg-pink-200"
               type="submit"
-              href="https://docs.google.com/document/d/1vPYy0H9UPBlwM9DlRXJs_wWVDvS-nVPp/edit?usp=sharing&ouid=108301462787204989460&rtpof=true&sd=true"
+              href="https://drive.google.com/file/d/1xNUEyN0Yi0QWHnEjHyU27Wo9J_BieLEs/view?usp=sharing"
             >
               view
             </a>
