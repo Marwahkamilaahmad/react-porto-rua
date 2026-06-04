@@ -76,7 +76,7 @@ const projects = [
     assetFolder: "research teep",
     rotateImage: true,
     description:
-      "Research internship at National Chengchi University, Taiwan, focused on machine learning experimentation and human pose estimation systems.",
+      "Research internship at National Chung Cheng University, Taiwan, focused on machine learning experimentation and human pose estimation systems.",
     responsibilities: [
       "Conducted machine learning research and experimentation.",
       "Developed PyTorch-based MeshMamba scoring pipeline.",
@@ -126,25 +126,6 @@ const ProjectModal = ({ project, onClose }) => (
             }`}
           >
             <img src={project.image} alt={`${project.title} cover`} />
-          </div>
-          <div className="project-modal-body">
-            <p className="project-role">{project.role}</p>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-
-            <h4>Responsibilities</h4>
-            <ul>
-              {project.responsibilities.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-
-            <h4>Achievement Highlights</h4>
-            <ul>
-              {project.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </div>
         </motion.article>
       </motion.div>
