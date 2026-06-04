@@ -1,86 +1,218 @@
-import denteksipict1 from "../assets/denteksi6.png";
-import konsultankupict1 from "../assets/konsultankupict1.png";
-import todolistgo from "../assets/todolist6.png";
-import calorieapp from "../assets/calorieapp-ui4.png";
-import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const assetModules = import.meta.glob(
+  [
+    "../assets/magang len/*.{png,jpg,jpeg,webp}",
+    "../assets/magang hino/*.{png,jpg,jpeg,webp}",
+    "../assets/research teep/*.{png,jpg,jpeg,webp}",
+  ],
+  {
+    eager: true,
+    import: "default",
+  }
+);
+
+const pickProjectImage = (folderName) => {
+  const normalizedFolder = folderName.toLowerCase();
+  const match = Object.entries(assetModules).find(([path]) =>
+    path.toLowerCase().includes(`/assets/${normalizedFolder}/`)
+  );
+
+  return match?.[1];
+};
 
 const projects = [
   {
-    title: "Denteksi Website",
+    title: "LEN Bitrix Dashboard",
+    role: "Frontend Developer",
+    assetFolder: "magang len",
     description:
-      "Denteksi adalah website dengan teknologi AI untuk mendeteksi adanya permasalahan pada gigi. Proyek ini dibangun dengan laravel dan database MySql",
-    image: denteksipict1,
-    githubLink: "https://denteksi.com",
-    tags: ["Laravel", "MySql", "Bootstrap"],
+      "Dashboard Bitrix untuk visualisasi data dan monitoring proyek divisi perusahaan, dikembangkan sebagai peningkatan dari dashboard sebelumnya.",
+    responsibilities: [
+      "Developed a dashboard website using React.js and TypeScript.",
+      "Integrated RESTful APIs from backend services.",
+      "Built responsive UI components.",
+      "Implemented data visualization features.",
+      "Collaborated with backend developers in Agile development processes.",
+    ],
+    technologies: [
+      "React.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Sequelize",
+      "Tailwind CSS",
+      "REST API",
+    ],
+    highlights: [
+      "Improved monitoring efficiency through real-time visualization.",
+      "Created responsive and reusable frontend components.",
+      "Enhanced user experience compared to previous dashboard version.",
+    ],
   },
   {
-    title: "Konsultanku Mobile",
+    title: "HINO Division Website",
+    role: "Full Stack Developer",
+    assetFolder: "magang hino",
     description:
-      "Konsultanku adalah aplikasi penghubung pihak UMKM dengan mahasiswa di indonesia yang akan bersama sama memberikan solusi pada masalah UMKM. Proyek dibangun dengan produk google",
-    image: konsultankupict1,
-    githubLink: "https://github.com/your-username/sentiment-analysis",
-    tags: ["Flutter", "Go", "Firebase"],
+      "Website internal untuk pengelolaan dan pemantauan investasi finansial, dibangun end-to-end dari database hingga frontend dan backend.",
+    responsibilities: [
+      "Developed the entire system independently.",
+      "Designed and implemented database architecture.",
+      "Built frontend and backend features using ASP.NET.",
+      "Developed reporting and investment tracking modules.",
+      "Created comprehensive documentation and user manuals.",
+    ],
+    technologies: ["ASP.NET MVC", "C#", "SQL Server", "JavaScript", "Bootstrap"],
+    highlights: [
+      "Delivered end-to-end full stack solution.",
+      "Produced user documentation exceeding 90 pages.",
+      "Improved investment monitoring and reporting process.",
+    ],
   },
   {
-    title: "Golang API Todo List",
+    title: "TEEP Taiwan Research Internship",
+    role: "AI Research Intern",
+    assetFolder: "research teep",
     description:
-      "Todo List yang didukung dengan Rest API Go language dan library fiber dari golang",
-    image: todolistgo,
-    githubLink: "https://github.com/Marwahkamilaahmad/todo-with-go",
-    tags: ["Go", "Fiber"],
-  },
-  {
-    title: "Android Calorie App",
-    description:
-      "Aplikasi mobile android yang didukung oleh firebase sebagai database dan autentikasi",
-    image: calorieapp,
-    githubLink: "https://github.com/Marwahkamilaahmad/ANDROID_CALORIE_APP",
-    tags: ["Android", "Kotlin", "Firebase"],
+      "Research internship at National Chengchi University, Taiwan, focused on machine learning experimentation and human pose estimation systems.",
+    responsibilities: [
+      "Conducted machine learning research and experimentation.",
+      "Developed PyTorch-based MeshMamba scoring pipeline.",
+      "Implemented ranking-based evaluation systems.",
+      "Performed model performance analysis and optimization.",
+      "Conducted comparative studies on human pose estimation models.",
+    ],
+    technologies: [
+      "Python",
+      "PyTorch",
+      "MeshMamba",
+      "Deep Learning",
+      "Computer Vision",
+      "Human Pose Estimation",
+    ],
+    highlights: [
+      "Developed a scoring pipeline for 3D human pose estimation.",
+      "Improved hypothesis selection through ranking-based evaluation.",
+      "Conducted research under international internship program.",
+    ],
   },
 ];
 
-const PortfolioItem = ({theme, setTheme}) => {
+const ProjectModal = ({ project, onClose }) => (
+  <AnimatePresence>
+    {project && (
+      <motion.div
+        className="modal-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+        <motion.article
+          className="project-modal"
+          initial={{ opacity: 0, y: 28, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 18, scale: 0.98 }}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <button className="modal-close" type="button" onClick={onClose}>
+            Close
+          </button>
+          <img src={project.image} alt={`${project.title} cover`} />
+          <div className="project-modal-body">
+            <p className="project-role">{project.role}</p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+
+            <h4>Responsibilities</h4>
+            <ul>
+              {project.responsibilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+
+            <h4>Achievement Highlights</h4>
+            <ul>
+              {project.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </motion.article>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
+
+const PortfolioItem = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const enrichedProjects = useMemo(
+    () =>
+      projects.map((project) => ({
+        ...project,
+        image: pickProjectImage(project.assetFolder),
+      })),
+    []
+  );
+
   return (
-    <div className="mx-auto py-16 px-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <div
+    <>
+      <div className="project-grid">
+        {enrichedProjects.map((project, index) => (
+          <motion.article
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
             key={project.title}
-            className={theme == "light" ?  "bg-cream rounded-2xl shadow-lg shadow-grey-600 overflow-hidden" : "bg-gradient-to-r from-pink-700 to-pink-400 rounded-2xl shadow-lg shadow-grey-600 overflow-hidden" }
+            className="project-card"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-56 "
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className={theme == "light" ? "text-black text-base text-sm" : "text-white text-base text-sm"}>{project.description}</p>
-              <div className="mt-4 flex space-x-4">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-white text-gray-700 py-1 px-3 rounded-full text-sm"
-                  >
+            <div className="project-image-wrap">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} cover`}
+                  className="project-image"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="project-image-placeholder">{project.title}</div>
+              )}
+            </div>
+            <div className="project-card-body">
+              <p className="project-role">{project.role}</p>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="badge-row">
+                {project.technologies.map((tag) => (
+                  <span className="tech-badge" key={tag}>
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="mt-6 flex justify-end space-x-4">
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
-                >
-                  GitHub
-                </a>
+              <div className="project-highlight">
+                <span>Highlight</span>
+                <p>{project.highlights[0]}</p>
               </div>
+              <button
+                className="secondary-button"
+                type="button"
+                onClick={() => setSelectedProject(project)}
+              >
+                View Details
+              </button>
             </div>
-          </div>
+          </motion.article>
         ))}
       </div>
-    </div>
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </>
   );
 };
 

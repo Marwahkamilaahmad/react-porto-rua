@@ -1,72 +1,84 @@
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import personal from "../assets/personpink.png";
-import personaldark from "../assets/personpurple.png";
-import githubicons from "../assets/github-icons.png";
-import linkedinicons from "../assets/linkedin-icons.png";
+import { motion } from "framer-motion";
+import personal from "../assets/person.png";
+import personaldark from "../assets/personwhite.png";
+
+const socials = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/marwah-kamila-ahmad",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Marwahkamilaahmad",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/thisismarwah/",
+  },
+];
 
 const General = ({ theme }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  const portrait = theme === "light" ? personal : personaldark;
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex py-10 md:flex-row flex-col items-center"
-    >
-      <div className="flex-1 flex justify-center md:justify-end items-center mb-10 md:mb-0">
-        <img
-          src={theme === "light" ? personal : personaldark}
-          alt="Personal"
-          className="md:max-w-md h-auto object-cover"
-        />
-      </div>
-      <div className="flex-1 md:ml-12 mr-10 px-5">
-        <h1
-          className={`text-5xl font-bold mb-4 ${
-            theme === "light"
-              ? "text-transparent bg-gradient-to-r from-red-500 to-blue-600"
-              : "text-transparent bg-gradient-to-r from-pink-500 to-cyan-500"
-          } bg-clip-text`}
-          data-aos={theme === "light" ? "fade-right" : "fade-down"}
+    <section id="home" className="hero-section page-shell">
+      <div className="hero-grid">
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="hero-copy"
         >
-          Software Engineering Student
-        </h1>
+          <span className="eyebrow">Software Engineer Portfolio</span>
+          <h1 className="gradient-text">Marwah Kamila Ahmad</h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.18 }}
+            className="hero-subtitle"
+          >
+            Full Stack Developer and AI Research Intern building clean,
+            responsive, data-driven products across web platforms, enterprise
+            dashboards, and computer vision research.
+          </motion.p>
 
-        <h4 className="text-lg font-semibold mb-2" data-aos="fade-left">
-          Fullstack Developer
-        </h4>
-        <p className="text" data-aos="fade-left">
-          Hi, Im Marwah Kamila a fullstack developer. Interest in website programming, cloud computing, and software testing. 
-        </p>
-        <div className="mt-4">
-          <a
-            href="https://www.linkedin.com/in/marwah-kamila-ahmad"
-            target="_blank"
-            className=" bg-pink-500 hover:bg-white hover:text-black text-white font-semibold py-2 px-4 mr-2 rounded"
-          >
+          <div className="hero-actions">
+            <a className="primary-button" href="#contact">
+              Contact
+            </a>
+            <a className="secondary-button" href="#projects">
+              View Projects
+            </a>
+          </div>
+
+          <div className="hero-socials" aria-label="Social links">
+            {socials.map((item) => (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                key={item.label}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="hero-portrait-wrap"
+        >
+          <div className="hero-portrait-card">
             <img
-              src={linkedinicons}
-              alt="LinkedIn Icon"
-              className="inline-block h-5 w-5 mr-1"
+              src={portrait}
+              alt="Marwah Kamila Ahmad professional portrait"
+              className="hero-portrait"
             />
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/Marwahkamilaahmad"
-            target="_blank"
-            className="bg-white text-black font-semibold py-2 px-4 rounded"
-          >
-            <img
-              src={githubicons}
-              alt="GitHub Icon"
-              className="inline-block h-6 w-6 mr-1"
-            />
-            GitHub
-          </a>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

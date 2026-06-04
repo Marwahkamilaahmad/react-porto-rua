@@ -1,79 +1,45 @@
 import "./Navbar.css";
 
-import { Link } from "react-router-dom";
-import toggle_dark from "../assets/night.png";
-import toggle_light from "../assets/day.png";
-import { useState } from "react";
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#technologies" },
+  { label: "Timeline", href: "#timeline" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = ({ theme, setTheme }) => {
-  const [checked, setChecked] = useState("checked");
+  const isDark = theme === "dark";
 
-  const toggle_change = () => {
-    theme == "light" ? setTheme("dark") : setTheme("light");
-  };
-  const checked_change = () => {
-    checked ? setChecked(false) : setChecked(true);
-  };
   return (
-    <div className="navbar-wrapper">
-      <div className="navbar-left">
-        <div className="mr-4 font-bold">Marwah - Rua</div>
-      </div>
+    <header className="navbar-shell">
+      <nav className="navbar-wrapper" aria-label="Main navigation">
+        <a className="navbar-brand" href="#home" aria-label="Marwah Kamila home">
+          <span className="brand-mark">MK</span>
+          <span>Marwah Kamila</span>
+        </a>
 
-      <div className="navbar-right">
-        <ul className="flex">
-          <li className="sub-list">
-            <Link
-              to="/#about"
-              style={{ textDecoration: "none", color: "inherit" }}
+        <ul className="navbar-links">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a className="nav-link" href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
             >
-              about
-            </Link>
-          </li>
-          <li className="sub-list">
-            <Link
-              to="/#projects"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              projects
-            </Link>
-          </li>
-          <li className="sub-list">
-            <Link
-              to="/#technologies"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              technologies
-            </Link>
-          </li>
-          <li className="mt-2">
-            <input
-              type="checkbox"
-              id="toggle-dark"
-              checked={checked}
-              className={`toggle border-none  hover:bg-red-700' ${
-                checked
-                  ? " [--tglbg:white] bg-yellow-300"
-                  : " [--tglbg:grey] bg-white"
-              }`}
-              onClick={() => {
-                toggle_change();
-                checked_change();
-              }}
-            />
-          </li>
-          <li className="w-10">
-            <div className="toggle-icon">
-              <img
-                src={theme == "light" ? toggle_light : toggle_dark}
-                alt=""
-                className="toggle-img"
-              />
-            </div>
+              <span>{isDark ? "Light" : "Dark"}</span>
+            </button>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

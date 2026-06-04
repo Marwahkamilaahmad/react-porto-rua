@@ -1,65 +1,85 @@
-import LanguageSkill from "../components/LanguageSkill";
+import { motion } from "framer-motion";
 import PortfolioItem from "../components/Portofolio";
 import Techstack from "../components/Techstack";
-import foto from "../assets/personpink.png";
 import SocialMedia from "../components/SocialMedia";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import EducationTimeline from "../components/EducationTimeline";
 
-const Home = ({ theme, setTheme }) => {
-  const location = useLocation();
+const SectionHeading = ({ eyebrow, title, description }) => (
+  <div className="section-heading">
+    <span className="eyebrow">{eyebrow}</span>
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+);
 
-  useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [location]);
 
+
+const Home = () => {
   return (
-    <main className=" mx-auto max-w-screen-lg text-center">
-      <section className="flex flex-col items-center justify-center min-h-screen">
-        <div className="mockup-code bg-white flex  text-center items-center justify-center text-black">
-          <pre className="mt-12">
-            <code className="">view marwah's details portofolio here</code> <br></br>{" "}
-            <a
-              className="bg-pink-300 px-5 hover:bg-pink-200"
-              type="submit"
-              href="https://drive.google.com/file/d/1xNUEyN0Yi0QWHnEjHyU27Wo9J_BieLEs/view?usp=sharing"
-            >
-              view
-            </a>
-          </pre>
-        </div>
-        <div id="technologies"></div>
-        <h4 className="text-dark-heading dark:text-light-heading xl:text-3xl xl:leading-tight font-bold mt-10">
-          Tech Stack
-        </h4>
+    <main className="page-shell">
+      <section id="about" className="section-pad">
+        <div className="about-grid">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="profile-panel"
+          >
+            <span className="eyebrow">Profile</span>
+            <h2>
+              Full stack engineering with a research-aware mindset and polished
+              product delivery.
+            </h2>
+            <p>
+              I build responsive interfaces, integrate backend systems, and
+              explore applied AI workflows. My portfolio highlights practical
+              product engineering across enterprise dashboards, internal
+              platforms, and computer vision research.
+            </p>
+          </motion.div>
 
-        <Techstack />
-        <h4 className="text-dark-heading mt-10 mb-10 dark:text-light-heading xl:text-3xl xl:leading-tight font-bold">
-          Language Proficiency
-        </h4>
-        <LanguageSkill theme={theme} setTheme={setTheme} />
-        <div id="projects"></div>
-        <h4 className="text-dark-heading mt-10 mb-10 dark:text-light-heading xl:text-3xl xl:leading-tight font-bold">
-          Portofolio
-        </h4>
-        <PortfolioItem
-          image={foto}
-          title="Project One"
-          link="https://example.com/project-one" 
-          theme={theme} setTheme={setTheme}
+
+        </div>
+      </section>
+
+      <section id="projects" className="section-pad">
+        <SectionHeading
+          eyebrow="Projects & Experience"
+          title="Enterprise builds, full stack ownership, and AI research."
+          description="Selected work presented as recruiter-friendly case studies with roles, technologies, achievements, and project visuals from local assets."
         />
-        <div id="about"></div>
-        <h4 className="text-dark-heading mt-10 mb-10 dark:text-light-heading xl:text-3xl xl:leading-tight font-bold">
-          Social Media
-        </h4>
+        <PortfolioItem />
+      </section>
+
+      <section id="technologies" className="section-pad">
+        <SectionHeading
+          eyebrow="Technology Stack"
+          title="A practical stack for modern product engineering."
+          description="Frontend craft, backend delivery, and AI research tools organized around the work I want to keep doing."
+        />
+        <Techstack />
+      </section>
+
+      <section id="timeline" className="section-pad">
+        <SectionHeading
+          eyebrow="Timeline"
+          title="Education, internships, professional work, and research."
+          description="A concise path through the experiences that shaped my software engineering and AI research direction."
+        />
+        <EducationTimeline />
+      </section>
+
+      <section id="contact" className="section-pad pb-24">
+        <SectionHeading
+          eyebrow="Contact"
+          title="Open to software engineering and AI-focused opportunities."
+          description="Reach out for internships, full stack roles, research collaboration, or product engineering work."
+        />
         <SocialMedia />
       </section>
     </main>
   );
-}
+};
+
 export default Home;
