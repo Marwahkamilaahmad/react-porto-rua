@@ -74,6 +74,7 @@ const projects = [
     title: "TEEP Taiwan Research Internship",
     role: "AI Research Intern",
     assetFolder: "research teep",
+    rotateImage: true,
     description:
       "Research internship at National Chengchi University, Taiwan, focused on machine learning experimentation and human pose estimation systems.",
     responsibilities: [
@@ -119,7 +120,13 @@ const ProjectModal = ({ project, onClose }) => (
           <button className="modal-close" type="button" onClick={onClose}>
             Close
           </button>
-          <img src={project.image} alt={`${project.title} cover`} />
+          <div
+            className={`project-modal-image-wrap ${
+              project.rotateImage ? "is-rotated" : ""
+            }`}
+          >
+            <img src={project.image} alt={`${project.title} cover`} />
+          </div>
           <div className="project-modal-body">
             <p className="project-role">{project.role}</p>
             <h3>{project.title}</h3>
@@ -170,7 +177,11 @@ const PortfolioItem = () => {
             key={project.title}
             className="project-card"
           >
-            <div className="project-image-wrap">
+            <div
+              className={`project-image-wrap ${
+                project.rotateImage ? "is-rotated" : ""
+              }`}
+            >
               {project.image ? (
                 <img
                   src={project.image}

@@ -12,6 +12,12 @@ const SectionHeading = ({ eyebrow, title, description }) => (
   </div>
 );
 
+const profileHighlights = [
+  { value: "Frontend", label: "React, TypeScript, responsive UI" },
+  { value: "Backend", label: "ASP.NET, APIs, database design" },
+  { value: "AI Research", label: "PyTorch, computer vision, evaluation" },
+];
+
 
 
 const Home = () => {
@@ -37,9 +43,35 @@ const Home = () => {
               product engineering across enterprise dashboards, internal
               platforms, and computer vision research.
             </p>
+            <div className="badge-row">
+              {["React", "TypeScript", "ASP.NET", "PyTorch"].map((item) => (
+                <span className="tech-badge" key={item}>
+                  {item}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
-
+          <motion.aside
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="profile-side-panel"
+          >
+            <span className="eyebrow">What I Do</span>
+            <div className="profile-highlight-list">
+              {profileHighlights.map((item) => (
+                <div className="profile-highlight-item" key={item.value}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+            <a className="profile-link" href="#projects">
+              Explore selected work
+            </a>
+          </motion.aside>
         </div>
       </section>
 
